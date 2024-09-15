@@ -6,6 +6,15 @@ export const userData = {
   title: 'Instructor', // feel free to replace the title value
 };
 
+export function User() {
+  return (
+    <div id="user" data-testid="user">
+      <h2>{userData.firstName} {userData.lastName}</h2>
+      <p>{userData.title}</p>
+    </div>
+  );
+}
+
 function App() {
 
   return (
@@ -21,6 +30,7 @@ function App() {
 
       <main>
         <h2>Time to get started!</h2>
+        <User />
       </main>
     </div>
   )
