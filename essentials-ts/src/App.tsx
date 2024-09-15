@@ -1,17 +1,13 @@
 import './App.css'
+import { CORE_CONCEPTS } from './data';
 
-export const userData = {
-  firstName: 'Maximilian', // feel free to replace the name value
-  lastName: 'Schwarzmüller', // feel free to replace the name value
-  title: 'Instructor', // feel free to replace the title value
-};
-
-export function User() {
+function CoreConcepts({ title, description, image }: { title: string, description: string, image: string }) {
   return (
-    <div id="user" data-testid="user">
-      <h2>{userData.firstName} {userData.lastName}</h2>
-      <p>{userData.title}</p>
-    </div>
+    <li>
+      <img src={image} alt={title} />
+      <h3>{title}</h3>
+      <p>{description}</p>
+    </li>
   );
 }
 
@@ -30,7 +26,13 @@ function App() {
 
       <main>
         <h2>Time to get started!</h2>
-        <User />
+        <section id="core-concepts" data-testid="core-concepts">
+          <ul>
+            {CORE_CONCEPTS.map((concept, index) => (
+              <CoreConcepts key={index} {...concept} />
+            ))}
+          </ul>
+        </section>
       </main>
     </div>
   )
